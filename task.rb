@@ -5,7 +5,7 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  puts names.push("斎藤")
+  p names << "斎藤"
 end
 
 def q2
@@ -14,28 +14,21 @@ def q2
 
   # 以下に回答を記載
   array = array1 + array2
-  puts array
+  p array
 end
 
 def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
-  three = []
-  numbers.each do |n|
-    if n == 3
-      three.push(n)
-    end
-  end
-  puts three.length
+  p numbers.count(3)
 end
 
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
-  puts sports
+  p sports.compact
 end
 
 def q5
@@ -43,7 +36,8 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
-
+  puts array1.empty?
+  puts array2.empty?
 end
 
 def q6
@@ -51,21 +45,21 @@ def q6
 
   # 以下に回答を記載
   numbers2 = numbers1.map{|n|n * 10}
-  puts numbers2
+  p numbers2
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array.each{|a|puts a.to_i}
+  p array.map!(&:to_i)
 end
 
 def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages = programming_languages.map{|c|c.capitalize}
+  programming_languages.map!{|c|c.capitalize}
   upper_case_programming_languages = programming_languages.map {|u|u.upcase }
   # 以下は変更しないで下さい
   p programming_languages
@@ -76,6 +70,14 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
+#  会員No.1 田中さん
+#  会員No.2 佐藤さん
+#  会員No.3 佐々木さん
+#  会員No.4 高橋さん
+
+  names.each_with_index do |name, i|
+    puts "会員No.#{i+1} #{name}さん"
+  end
 
 end
 
