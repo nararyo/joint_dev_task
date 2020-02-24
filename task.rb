@@ -176,6 +176,28 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  attr_accessor :name
+  attr_accessor :age
+  attr_accessor :gender
+  attr_accessor :admin
+
+def initialize(name:, age:, gender:, admin: )
+  self.name = name
+  self.age = age
+  self.gender = gender
+  self.admin = admin
+end
+
+  def info
+    puts "名前：#{name}"
+    puts "年齢：#{age}"
+    puts "性別：#{gender}"
+    if admin
+      puts "管理者権限：有り"
+    else
+      puts "管理者権限：無し"
+    end
+  end
 
 end
 
@@ -187,10 +209,32 @@ def q17
   user1.info
   puts "-------------"
   user2.info
+
+  def info
+
+  end
 end
 
 class UserQ18
   # 以下に回答を記載
+  attr_accessor :name
+  attr_accessor :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    #こんにちは，あじーと申します。宜しくお願いいたします。
+    #はいさいまいど〜，ゆたぼんです！！！
+    if age > 18
+      puts "こんにちは、#{name}と申します。よろしくお願いいたします。"
+    else
+      puts "はいさいまいど〜, #{name}です！！！"
+    end
+  end
+
 
 end
 
@@ -205,8 +249,9 @@ end
 
 class Item
   # 以下を修正して下さい
+attr_accessor :name
 
-  def initialize(name)
+  def initialize(name:)
     @name = name
   end
 end
@@ -219,11 +264,30 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  attr_accessor :name
+  attr_accessor :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
 
 end
 
-class Zoo
+class Zoo < UserQ20
   # 以下に回答を記載
+  attr_accessor :name
+  attr_accessor :entry_fee
+
+  def initialize(name:, entry_fee:)
+    @name = name
+    @entry_fee = entry_fee
+  end
+
+  def info_entry_fee(name)
+    puts "#{name}さんの入場料金は"
+  end
+
 
 end
 
@@ -243,3 +307,7 @@ def q20
     zoo.info_entry_fee(user)
   end
 end
+#たまさんの入場料金は 0 円です。
+#ゆたぼんさんの入場料金は 400 円です。
+#あじーさんの入場料金は 800 円です。
+#ぎんさんの入場料金は 500 円です。
