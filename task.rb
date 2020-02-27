@@ -130,16 +130,18 @@ def q13
 
 
   # 以下に回答を記載
-  user_data[:age] = 32
-  user_data[:address] = "沖縄"
-  puts user_data
+  #user_data[:age] = 32
+  #user_data[:address] = "沖縄"
+  #puts user_data
+
+  puts user_data.merge!(update_data)
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-  data.each {|key, value| puts key}
+  p data.map {|key, value| key}
 end
 
 def q15
@@ -149,11 +151,8 @@ def q15
   # 以下に回答を記載
   data = [data1, data2]
   data.each do |d|
-    if d.include?(:age)
-      puts "OK"
-    else
-      puts "NG"
-    end
+     puts d.key?(:age) ? 'OK':'NG'
+
   end
 
 end
@@ -273,10 +272,29 @@ class UserQ20
 
 end
 
-class Zoo < UserQ20
+class Zoo
   # 以下に回答を記載
+  attr_accessor :entry_fee, :name
+
+  def initialize(name:, entry_fee:)
+    @name = name
+    @entry_fee = entry_fee
+  end
+
   def info_entry_fee(user)
-    puts "#{user.name}"
+    if user.age < 6 && user.age >= 0
+      price = entry_fee[:infant]
+    elsif user.age > 5 && user.age <13
+      price = entry_fee[:children]
+    elsif user.age > 12 && user.age <65
+      price = entry_fee[:adult]
+    else
+      price = entry_fee[:senior]
+
+    end
+
+      puts "#{user.name}さんの入場料金は#{price}円です。"
+
 
   end
 end
@@ -293,10 +311,10 @@ def q20
     UserQ20.new(name: "ぎん", age: 108)
   ]
 
-#  users.each do |user|
-#    zoo.info_entry_fee(user)
-user1 = users[0]
-  zoo.info_entry_fee(user1)
+  users.each do |user|
+  zoo.info_entry_fee(user)
+  end
+
 end
 #たまさんの入場料金は 0 円です。
 #ゆたぼんさんの入場料金は 400 円です。
