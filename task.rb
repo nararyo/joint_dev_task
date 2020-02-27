@@ -276,18 +276,19 @@ end
 
 class Zoo < UserQ20
   # 以下に回答を記載
-  attr_accessor :name
   attr_accessor :entry_fee
 
-  def initialize(name:, entry_fee:)
-    @name = name
+  def initialize(entry_fee:)
     @entry_fee = entry_fee
   end
 
-  def info_entry_fee(name)
-    puts "#{name}さんの入場料金は"
-  end
+  def info_entry_fee(user)
+    if user.age  < 60
+      puts "ok"
+    end
 
+    end
+  end
 
 end
 
