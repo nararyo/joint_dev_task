@@ -191,7 +191,7 @@ class UserQ17
      "名前：#{@name}"
   　 "年齢：#{@age}"
      "性別：#{@gender}"
-     "管理者権限：#{@admin}"
+     "管理者権限：#{admin}"
     EOS
   end
 
@@ -206,9 +206,7 @@ def q17
   puts "-------------"
   user2.info
 
-  def info
-
-  end
+  
 end
 
 class UserQ18
@@ -221,8 +219,6 @@ class UserQ18
   end
 
   def introduce
-    #こんにちは，あじーと申します。宜しくお願いいたします。
-    #はいさいまいど〜，ゆたぼんです！！！
     if @age > 18
       puts "こんにちは、#{@name}と申します。よろしくお願いいたします。"
     else
