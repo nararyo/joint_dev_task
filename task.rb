@@ -206,7 +206,7 @@ def q17
   puts "-------------"
   user2.info
 
-  
+
 end
 
 class UserQ18
@@ -225,8 +225,6 @@ class UserQ18
       puts "はいさいまいど〜, #{@name}です！！！"
     end
   end
-
-
 end
 
 def q18
@@ -234,8 +232,8 @@ def q18
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
 
-  puts user1.introduce
-  puts user2.introduce
+  user1.introduce
+  user2.introduce
 end
 
 class Item
