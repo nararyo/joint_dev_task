@@ -219,11 +219,7 @@ class UserQ18
   end
 
   def introduce
-    if @age > 18
-      puts "こんにちは、#{@name}と申します。よろしくお願いいたします。"
-    else
-      puts "はいさいまいど〜, #{@name}です！！！"
-    end
+    @age > 18 ? "こんにちは、#{@name}と申します。よろしくお願いいたします。" : "はいさいまいど〜, #{@name}です！！！"
   end
 end
 
@@ -232,8 +228,8 @@ def q18
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
 
-  user1.introduce
-  user2.introduce
+  puts user1.introduce
+  puts user2.introduce
 end
 
 class Item
